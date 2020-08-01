@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <data>
+
+        <variable
+            name="vm"
+            type="com.seunghyun.cube.ui.function.FunctionViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/pageHorizontalMargin"
+                android:layout_marginTop="@dimen/pageVerticalMargin"
+                android:layout_marginBottom="16dp"
+                android:text="@string/select_function" />
+
+            <TextView
+                style="@style/SubTitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/pageHorizontalMargin"
+                android:layout_marginVertical="8dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:text="@string/add_new_device" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/deviceRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_weight="1"
+                android:paddingBottom="@dimen/pageVerticalMargin"
+                tools:listitem="@layout/item_device" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
