@@ -1,6 +1,6 @@
 package com.seunghyun.cube.di
 
-import com.seunghyun.cube.ui.MainViewModel
+import com.seunghyun.cube.ui.main.MainViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

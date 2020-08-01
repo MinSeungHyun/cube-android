@@ -1,4 +1,4 @@
-package com.seunghyun.cube.ui
+package com.seunghyun.cube.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

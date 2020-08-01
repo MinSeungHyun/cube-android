@@ -1,4 +1,4 @@
-package com.seunghyun.cube.ui
+package com.seunghyun.cube.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
