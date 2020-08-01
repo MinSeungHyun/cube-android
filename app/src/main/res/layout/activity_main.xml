@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{vm.functionItems[vm.skinNumber - 1].toString()}"
+                android:text="@{vm.functionItems[vm.skinNumber - 1].toStringIgnoreEmpty()}"
                 app:layout_constraintBottom_toBottomOf="@id/skinName"
                 app:layout_constraintStart_toEndOf="@id/skinName"
                 tools:text="무드등 밝기 조절" />
