@@ -17,10 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(
-            this,
-            R.layout.activity_main
-        )
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
@@ -30,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 itemBinding.item = item
             }
             .setLayoutManager(GridLayoutManager(this, 2))
-            .setItems(viewModel.functionItems)
+            .setItems(viewModel.functionItems, this)
             .into(functionRecyclerView)
     }
 }

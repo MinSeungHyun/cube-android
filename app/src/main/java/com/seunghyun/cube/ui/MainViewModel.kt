@@ -1,6 +1,5 @@
 package com.seunghyun.cube.ui
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -8,24 +7,24 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.seunghyun.cube.model.FunctionItem
+import com.seunghyun.cube.util.MutableLiveData
+
+private val initialFunctionItems = listOf(
+    FunctionItem(1, "", ""),
+    FunctionItem(2, "", ""),
+    FunctionItem(3, "", ""),
+    FunctionItem(4, "", ""),
+    FunctionItem(5, "", ""),
+    FunctionItem(6, "", "")
+)
 
 class MainViewModel : ViewModel() {
-    val angle = MutableLiveData<Int>()
-    val skinNumber = MutableLiveData<Int>()
-    val functionItems = listOf(
-        FunctionItem(1, "무드등 켜기 / 끄기"),
-        FunctionItem(2, "에어컨 켜기 / 끄기"),
-        FunctionItem(3, "선풍기 켜기 / 끄기"),
-        FunctionItem(4, "노래 재생 / 일시정지"),
-        FunctionItem(5, "다음 곡"),
-        FunctionItem(6, "이전 곡")
-    )
-
+    val angle = MutableLiveData(0)
+    val skinNumber = MutableLiveData(1)
+    val functionItems = MutableLiveData(initialFunctionItems)
     private val db = Firebase.database
 
     init {
-        angle.value = 0
-        skinNumber.value = 1
         db.getReference("angle").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 angle.value = snapshot.value.toString().toInt()

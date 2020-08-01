@@ -42,7 +42,8 @@
             style="@style/SecondaryTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{item.function}"
-            tools:text="무드등 켜기 / 끄기" />
+            android:gravity="center"
+            android:text="@{item.toString()}"
+            tools:text="무드등 밝기 조절" />
     </LinearLayout>
 </layout>
