@@ -1,4 +1,4 @@
-package com.seunghyun.cube
+package com.seunghyun.cube.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.seunghyun.cube.model.FunctionItem
 
 class MainViewModel : ViewModel() {
     val angle = MutableLiveData<Int>()

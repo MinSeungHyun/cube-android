@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.seunghyun.cube.Utils" />
+        <import type="com.seunghyun.cube.util.Utils" />
 
         <variable
             name="item"
-            type="com.seunghyun.cube.FunctionItem" />
+            type="com.seunghyun.cube.model.FunctionItem" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

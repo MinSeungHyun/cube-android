@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.seunghyun.cube.Utils" />
+        <import type="com.seunghyun.cube.util.Utils" />
 
         <variable
             name="vm"
-            type="com.seunghyun.cube.MainViewModel" />
+            type="com.seunghyun.cube.ui.MainViewModel" />
     </data>
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

@@ -1,7 +1,8 @@
-package com.seunghyun.cube
+package com.seunghyun.cube.util
 
 import android.view.View
 import androidx.databinding.BindingAdapter
+import com.seunghyun.cube.R
 
 class Utils {
     companion object {
