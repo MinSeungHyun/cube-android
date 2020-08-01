@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.seunghyun.cube.Utils" />
+
+        <variable
+            name="item"
+            type="com.seunghyun.cube.FunctionItem" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/background_function_card"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="32dp">
+
+        <View
+            skinColorTint="@{item.skinNumber}"
+            android:layout_width="32dp"
+            android:layout_height="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/background_skin_color"
+            tools:backgroundTint="@color/red" />
+
+        <TextView
+            style="@style/PrimaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@{Utils.skinNumberToName(@stringArray/skinNames, item.skinNumber)}"
+            tools:text="Red" />
+
+        <TextView
+            style="@style/SecondaryTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.function}"
+            tools:text="무드등 켜기 / 끄기" />
+    </LinearLayout>
+</layout>

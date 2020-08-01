@@ -1,47 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="com.seunghyun.cube.Utils" />
 
         <variable
             name="vm"
             type="com.seunghyun.cube.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/angleText"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`angle : ` + vm.angle}"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/skinText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:text="angle : 123" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp">
+
+            <View
+                android:id="@+id/skinColor"
+                skinColor="@{vm.skinNumber}"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/skinName"
+                app:layout_constraintStart_toStartOf="@id/skinName" />
+
+            <TextView
+                android:id="@+id/skinName"
+                style="@style/TitleTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Utils.skinNumberToName(@stringArray/skinNames, vm.skinNumber)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Red" />
+
+            <TextView
+                android:id="@+id/functionName"
+                style="@style/SecondaryTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{vm.functionItems[vm.skinNumber - 1].function}"
+                app:layout_constraintBottom_toBottomOf="@id/skinName"
+                app:layout_constraintStart_toEndOf="@id/skinName"
+                tools:text="무드등 켜기 / 끄기" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/skinText"
+            style="@style/SubTitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{`skin : ` + vm.skin}"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/angleText"
-            tools:text="skin : 1" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/skin_selected"
+            android:textColor="@android:color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/functionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_function" />
+    </LinearLayout>
 </layout>
