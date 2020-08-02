@@ -2,6 +2,7 @@ package com.seunghyun.cube.util
 
 import android.view.View
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import com.seunghyun.cube.R
 
 class Utils {
@@ -37,6 +38,12 @@ class Utils {
                 R.color.purple
             )
             view.backgroundTintList = context.resources.getColorStateList(colors[number - 1], null)
+        }
+
+        @JvmStatic
+        fun <T> MutableLiveData<List<T>>.edit(block: MutableList<T>.() -> Unit) {
+            val mutableList = this.value?.toMutableList() ?: return
+            this.value = mutableList.apply(block)
         }
     }
 }

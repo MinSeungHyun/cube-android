@@ -1,5 +1,7 @@
 package com.seunghyun.cube.ui.function
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.seunghyun.cube.R
 import com.seunghyun.cube.databinding.ActivityFunctionBinding
+import com.seunghyun.cube.model.FunctionItem
 import com.seunghyun.cube.util.deviceFunctions
 import kotlinx.android.synthetic.main.activity_function.*
 import kotlinx.android.synthetic.main.item_device.view.*
@@ -38,6 +41,16 @@ class FunctionActivity : AppCompatActivity() {
                     .onBind { view, functionName ->
                         if (pair.second.indexOf(functionName) == 0) view.divider.visibility = View.INVISIBLE
                         view.deviceFunctionName.text = functionName
+                    }
+                    .onItemClick { _, position ->
+                        val selectedItem = FunctionItem(
+                            viewModel.skinNumber.value ?: 1,
+                            pair.first,
+                            pair.second[position]
+                        )
+                        val intent = Intent().putExtra("selectedItem", selectedItem)
+                        setResult(Activity.RESULT_OK, intent)
+                        finish()
                     }
                     .into(deviceItemView.deviceFunctionRecyclerView)
             }
