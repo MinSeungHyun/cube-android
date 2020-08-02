@@ -12,6 +12,7 @@ import com.seunghyun.cube.databinding.ItemFunctionBinding
 import com.seunghyun.cube.model.FunctionItem
 import com.seunghyun.cube.ui.function.FunctionActivity
 import com.seunghyun.cube.util.Utils.Companion.edit
+import jp.wasabeef.recyclerview.animators.FadeInAnimator
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import slush.Slush
@@ -40,6 +41,12 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(intent, REQUEST_FUNCTION_ACTIVITY)
             }
             .into(functionRecyclerView)
+
+        functionRecyclerView.itemAnimator = FadeInAnimator().apply {
+            addDuration = 200
+            removeDuration = 200
+            changeDuration = addDuration + removeDuration
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
