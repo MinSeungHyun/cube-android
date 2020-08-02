@@ -23,6 +23,8 @@ class FunctionActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
+        viewModel.skinNumber.value = intent.getIntExtra("skinNumber", 1)
+
         Slush.SingleType<Pair<String, List<String>>>()
             .setLayoutManager(LinearLayoutManager(this))
             .setItemLayout(R.layout.item_device)

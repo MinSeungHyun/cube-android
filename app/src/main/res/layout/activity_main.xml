@@ -29,12 +29,12 @@
                 android:id="@+id/skinColor"
                 skinColor="@{vm.skinNumber}"
                 android:layout_width="0dp"
-                android:layout_height="8dp"
+                android:layout_height="@dimen/highlightBoxHeight"
                 android:layout_marginBottom="4dp"
-                android:background="@color/red"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/skinName"
-                app:layout_constraintStart_toStartOf="@id/skinName" />
+                app:layout_constraintStart_toStartOf="@id/skinName"
+                tools:background="@color/red" />
 
             <TextView
                 android:id="@+id/skinName"

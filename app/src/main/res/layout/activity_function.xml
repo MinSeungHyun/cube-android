@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -19,14 +20,33 @@
             android:background="@android:color/white"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/TitleTextStyle"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/pageHorizontalMargin"
                 android:layout_marginTop="@dimen/pageVerticalMargin"
-                android:layout_marginBottom="16dp"
-                android:text="@string/select_function" />
+                android:layout_marginBottom="8dp">
+
+                <View
+                    android:id="@+id/skinColor"
+                    skinColor="@{vm.skinNumber}"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/highlightBoxHeight"
+                    android:layout_marginBottom="3dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/titleText"
+                    app:layout_constraintStart_toStartOf="@id/titleText"
+                    tools:background="@color/red" />
+
+                <TextView
+                    android:id="@+id/titleText"
+                    style="@style/TitleTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_function"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 style="@style/SubTitleTextStyle"

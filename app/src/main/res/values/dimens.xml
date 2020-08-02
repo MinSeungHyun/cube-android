@@ -2,4 +2,5 @@
 <resources>
     <dimen name="pageVerticalMargin">32dp</dimen>
     <dimen name="pageHorizontalMargin">24dp</dimen>
+    <dimen name="highlightBoxHeight">8dp</dimen>
 </resources>
