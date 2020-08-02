@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#B70000</color>
     <color name="normalTextColor">#757575</color>
+    <color name="lightTextColor">#B0B0B0</color>
     <color name="rippleColor">#F1F1F1</color>
 
     <color name="red">#FF606D</color>

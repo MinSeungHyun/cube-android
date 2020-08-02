@@ -3,6 +3,7 @@
     <string name="skin_selected">면이 선택되었습니다.</string>
     <string name="select_function">기능을 선택해주세요.</string>
     <string name="add_new_device">새로운 기기 추가 +</string>
+    <string name="rotation_increase">현재 큐브의 회전 변화값</string>
     <string-array name="skinNames">
         <item>Red</item>
         <item>Orange</item>
