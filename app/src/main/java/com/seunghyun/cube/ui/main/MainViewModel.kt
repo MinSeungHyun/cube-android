@@ -34,7 +34,7 @@ class MainViewModel : ViewModel() {
     private var rotationIncreaseSum = 0
 
     init {
-        db.getReference("angle").addValueEventListener(object : ValueEventListener {
+        db.getReference("data/angle").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val angle = snapshot.value.toString().toInt()
                 rotationIncreaseSum += angle - angleBefore
@@ -44,7 +44,7 @@ class MainViewModel : ViewModel() {
             override fun onCancelled(error: DatabaseError) {}
         })
 
-        db.getReference("skin").addValueEventListener(object : ValueEventListener {
+        db.getReference("data/skin").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 skinNumber.value = snapshot.value.toString().toInt()
             }
